@@ -1,0 +1,32 @@
+{
+  "name": "peak-destination-rentals",
+  "version": "1.0.0",
+  "description": "This application would allow users to create an account and rent skis, snowboards etc. Edit",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FinalProjectGroup01/Peak-Destination-Rentals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FinalProjectGroup01/Peak-Destination-Rentals/issues"
+  },
+  "homepage": "https://github.com/FinalProjectGroup01/Peak-Destination-Rentals#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-icons": "^2.2.5",
+    "react-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  }
+}
