@@ -1,5 +1,5 @@
 {
-  "name": "peak-destination-rentals",
+  "name": "peak-destinations-rentals",
   "version": "1.0.0",
   "description": "This application would allow users to create an account and rent skis, snowboards etc. Edit",
   "main": "server.js",
