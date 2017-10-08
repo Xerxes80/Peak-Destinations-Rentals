@@ -1,34 +1,31 @@
 {
-  "name": "peak-destinations-rentals",
+  "name": "nytreact",
   "version": "1.0.0",
-  "description": "This application would allow users to create an account and rent skis, snowboards etc. Edit",
+  "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FinalProjectGroup01/Peak-Destination-Rentals.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FinalProjectGroup01/Peak-Destination-Rentals/issues"
-  },
-  "homepage": "https://github.com/FinalProjectGroup01/Peak-Destination-Rentals#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.1",
-    "mongoose": "^4.11.13",
-    "morgan": "^1.9.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-icons": "^2.2.5",
-    "react-router": "^4.2.0"
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.20",
+    "morgan": "^1.7.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.0"
-  }
+    "axios": "^0.12.0",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "webpack -w",
+    "dev": "webpack & node server.js"
+  },
+  "author": "",
+  "license": "ISC"
 }
