@@ -1,17 +1,15 @@
 var React = require("react");
 
+var Orders= React.createClass({
 
-var Skis = React.createClass({
 
   getInitialState: function() {
     return {
-
+  
     };
   },
 
-
   render: function() {
- 
 
     return (
       <div className="">
@@ -21,6 +19,7 @@ var Skis = React.createClass({
               <div className="row">
                 <div className="col-md-8 offset-md-2">
 
+                
 
                 </div>
               </div>
@@ -37,15 +36,16 @@ var Skis = React.createClass({
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="jumbotron">
-                      <h2 className="text-center"><strong>Skis</strong></h2>
+                      <h2 className="text-center"><strong>Orders</strong></h2>
                   
                     </div>
                   </div>
                 </div>
 
 
-              <div className="row">
 
+              <div className="row">
+            
               </div>
               <br /><br />
               <div className="row">
@@ -79,4 +79,4 @@ var Skis = React.createClass({
   }
 });
 
-module.exports = Skis;
+module.exports = Orders;
