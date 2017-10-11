@@ -6,20 +6,23 @@ var EquipmentsSchema = new Schema({
   category: {
     type: String
   },
-  img:{
+  name:{
     type: String
+  },
+  icon:{
+    type: String
+  },
+  img:{
+    type: Array
   },
   brand: {
     type: String
   },
-  level: {
+  desc: {
     type: String
   },
   price: {
-    type: number
-  },
-  desc: {
-    type: String
+    type: Number
   }
 
 });

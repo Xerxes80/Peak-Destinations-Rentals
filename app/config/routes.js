@@ -14,7 +14,7 @@ var Main = require("../components/Main");
 var Home = require("../components/Home");
 var Equipments= require("../components/Equipments");
 var BookNow = require("../components/BookNow");
-var AboutUs = require("../components/AboutUs");
+
 var Account = require("../components/Account");
 var Goggles = require("../components/equipments/Goggles");
 var Helmets = require("../components/equipments/Helmets");
@@ -31,7 +31,7 @@ module.exports = (<Router history={browserHistory}>
       <Route path="Home" component={Home} />
       <Route path="Equipments" component={Equipments} />
       <Route path="BookNow" component={BookNow} />
-      <Route path="AboutUs" component={AboutUs} />
+
       <Route path="Account" component={Account} />
       <Route path="Goggles" component={Goggles} />
       <Route path="Helmets" component={Helmets} />

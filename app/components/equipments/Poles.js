@@ -1,15 +1,32 @@
 var React = require("react");
-
+var helpers = require("../../utils/helpers");
 
 var Poles = React.createClass({
 
   getInitialState: function() {
     return {
-
+        poles: []
     };
   },
+  componentDidMount: function() {
+    helpers.getAll().then(function(results) {
+      var newArray =[];
+      for (var i=0; i<results.data.length; i++){
+        (results.data[i].category == "poles") ? 
+        newArray.push(results.data[i]) : null
+        
+      }
+      this.setState({ poles: newArray });
+      console.log("Data", this.state.poles);
+    }.bind(this));
+  },  
 
+  handleClick: function(item) {
+    console.log("CLICKED");
+    console.log(item);
 
+  },
+  
   render: function() {
  
 
@@ -30,19 +47,6 @@ var Poles = React.createClass({
         <div className="wrapper">
           <div className="section text-center landing-section">
             <div className="container">
-
-
-
-
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="jumbotron">
-                      <h2 className="text-center"><strong>Poles</strong></h2>
-                  
-                    </div>
-                  </div>
-                </div>
-
 
               <div className="row">
 
@@ -69,6 +73,26 @@ var Poles = React.createClass({
               <div className="row">
                 <div className="col-md-8 offset-md-2">
                    
+                    {this.state.poles.map((eq, index) => 
+                      <div key={index}>
+                        <div className="card" data-background="image">
+                          <img className="card-img" src= {eq.img} />
+                          <div className="card-block">
+                            <h6 className="card-category">{eq.brand}</h6>
+                            <div className="card-icon">
+                            </div>
+                            <p className="card-description">{eq.name}</p>
+                            <div className="card-footer">
+                              <div className="btn btn-link btn-neutral"  onClick={() => this.handleClick(eq)}>
+                              <i className="fa fa-book" aria-hidden="true"></i> Show more
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}  
+
+
                 </div>
               </div>
             </div>

@@ -37,8 +37,10 @@ var UserSchema = new Schema({
         },
         equipments: {
         	type: Array
-        }
-	    
+        },
+        orederDate: {
+          type: Timestamp  
+	      }
     ]
   //   ,
   // orderHistory:[ 
