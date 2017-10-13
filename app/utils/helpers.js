@@ -34,7 +34,7 @@ var helpers = {
   },
   postUser: function(email, password, username){
   	var newUser = {email: email, password:password, username: username};
-  	return axios.post("/api/user", newUser)
+  	return axios.post("/api", newUser)
       .then(function(response) {
         console.log("axios results", response);
         return response;
