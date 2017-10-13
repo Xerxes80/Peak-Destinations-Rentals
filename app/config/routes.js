@@ -22,7 +22,7 @@ var Poles = require("../components/equipments/Poles");
 var Skis = require("../components/equipments/Skis");
 var Snowboards = require("../components/equipments/Snowboards");
 var Snowmobiles = require("../components/equipments/Snowmobiles");
-var UserLogInOut = require("../components/Accounts/UserLogInOut");
+
 var UserProfile = require("../components/Accounts/UserProfile");
 var Orders = require("../components/Accounts/Orders");
 var Cart = require("../components/Accounts/Cart");
@@ -39,7 +39,7 @@ module.exports = (<Router history={browserHistory}>
       <Route path="Skis" component={Skis} />
       <Route path="Snowboards" component={Snowboards} />
       <Route path="Snowmobiles" component={Snowmobiles} />
-      <Route path="UserLogInOut" component={UserLogInOut} />
+
       <Route path="UserProfile" component={UserProfile} />
       <Route path="Orders" component={Orders} />
       <Route path="Cart" component={Cart} />
@@ -47,3 +47,4 @@ module.exports = (<Router history={browserHistory}>
 
     </Route>
   </Router>);
+

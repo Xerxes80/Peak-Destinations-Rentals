@@ -24,7 +24,7 @@ var Goggles = React.createClass({
   handleClick: function(item) {
     console.log("CLICKED");
     console.log(item);
-
+    
   },
   
   render: function() {

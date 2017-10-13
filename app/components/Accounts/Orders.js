@@ -13,7 +13,7 @@ var Orders= React.createClass({
 
     return (
       <div className="">
-        <div className="page-header" data-parallax="true">
+        <div className="page-header profile" data-parallax="true">
           <div className="content-center">
             <div className="container">
               <div className="row">

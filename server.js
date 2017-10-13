@@ -2,18 +2,14 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
+// var session = require('express-session');
+// var MongoStore = require('connect-mongo')(session);
 var Equipments = require("./models/equipments.js");
+var User = require("./models/user.js");
 mongoose.Promise = Promise;
 
 var app = express();
 
-app.use(logger("dev"));
-app.use(bodyParser.urlencoded({
-	extended: false
-}));
-
-app.use(express.static("public"));
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/peak-dest-rentals01";
 
@@ -26,6 +22,33 @@ mongoose.connect(db, function(error) {
    console.log("mongoose connection is successful");
  }
 });
+// mongoose.connect("mongodb://localhost/peak-dest-rentals01");
+// var db = mongoose.connection;
+
+//handle mongo error
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//   console.log("mongoose connection is successful");
+// });
+
+// app.use(logger("dev"));
+// app.use(session({
+//   secret: 'work hard',
+//   resave: true,
+//   saveUninitialized: false,
+//   store: new MongoStore({
+//     mongooseConnection: db
+//   })
+// }));
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
+
+//var userRoutes = require('./app/config/userRouter');
+// app.use('/', userRoutes);
+
+app.use(express.static("public"));
+//app.use(express.static(__dirname + '/public'));
 
 var PORT = process.env.PORT || 3000; 
 app.use(bodyParser.json());
@@ -46,20 +69,39 @@ app.get("/api/data", function(req, res) {
       }
     });
 });
+app.get("/api", function(req, res) {
 
-// app.post("/api/data", function(req, res) {
-//   var newData = new Equipments(req.body);
+  User.find({})
+    .exec(function(err, doc) {
 
-//   console.log(req.body);
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+app.post("/api", function(req, res) {
+  var newUser = new User(req.body);
 
-//   newData.save(function(err, doc) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       res.send(doc);
-//     }
-//   });
+  console.log(req.body);
+
+  User.save(newUser, function(err, doc) {
+
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+
+// app.use(function (req, res, next) {
+//   var err = new Error('File Not Found');
+//   err.status = 404;
+//   next(err);
 // });
 
 app.get("*", function(req, res) {
