@@ -9,13 +9,20 @@ var helpers = {
         return results;
       });
   },
-  getUser: function(email, password) {
-    return axios.get("/api",{
-    	params: {
-    		"email": email,
-    		"password": password
-    	}
-    })
+  getUser: function() {
+    return axios.get("/signin")
+      // params: {
+      //  "email": email,
+      //  "password": password
+      // }
+    
+      .then(function(results) {
+        console.log("axios results", results);
+        return results;
+      });
+  },
+  getCart: function() {
+    return axios.get("/api/cart")
       .then(function(results) {
         console.log("axios results", results);
         return results;
@@ -32,9 +39,17 @@ var helpers = {
         return results;
       });
   },
+  postCart: function(userId, itemId){
+    var newCart = {userId: userId, itemId: itemId};
+    return axios.post("/cart", newCart)
+      .then(function(response) {
+        console.log("axios results", response);
+        return response;
+      });
+  },
   postUser: function(email, password, username){
-  	var newUser = {email: email, password:password, username: username};
-  	return axios.post("/api", newUser)
+    var newUser = {email: email, password:password, username: username};
+    return axios.post("/signup", newUser)
       .then(function(response) {
         console.log("axios results", response);
         return response;

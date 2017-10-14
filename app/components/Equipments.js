@@ -31,26 +31,6 @@ var Equipments = React.createClass({
     return(
       
       <div className="main-container">
-        <div className="page-header" data-parallax="true">
-          <div className="content-center">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="jumbotron">
-               <h2 className="text-center"><strong>ALL EQUIPMENTS</strong></h2>
-              </div>
-              <hr />
-            </div>
-          </div>
           <div className="section landing-section">
             <div className="container">
               <div className="row">
@@ -98,7 +78,7 @@ var Equipments = React.createClass({
                             <h4 className="card-title">{eq.brand}</h4>
                             <br /><br />
                             <div className="card-img">
-                            <img className="cardImg " src={eq.icon} width="200px" height="100px"/>
+                            <img className="cardImg " src={eq.icon}  height="100px"/>
                             
                             </div>
                             <br /><br />
@@ -262,86 +242,3 @@ var Equipments = React.createClass({
 });
 
 module.exports = Equipments;
-
-//
-// handleClick: function(item) {
-//     console.log("clicked");
-//     console.log();
-//     this.setState({eqTarget: })
-    
-
-
-//                    <div>
-          //           {this.state.allEquipments.map((eq, index) => 
-                      
-          //             <div key={index}>
-                          
-          //                 <div className="card text-white bg-Success mb-3">
-          //                   <div className="card-header text-center">{index+1} . {eq.name}</div>
-          //                   <div className="card-body">
-          //                     <h4 className="card-title">{eq.img} card title</h4>
-          //                     <p className="card-text">{eq.brand}</p>
-          //                   </div>
-          //                 </div>
-                        
-          //             </div>
-                      
-                
-                  
-          //          </div>
-          //            })
-          //     </div>
-          //   </div>
-          // </div>
-          // )
-
-
-//     // <Redirect to = {{pathname: '/Goggles'}} />
-//   },
-// <div className="main-container">
-//             <div className="row">
-//               <div className="col-lg-12">
-//                 <div className="jumbotron">
-//                  <h2 className="text-center"><strong>EQUIPMENTS</strong></h2>
-//                 </div>
-//                  <hr />
-//                   <div>
-//                     {this.state.allEquipments.map((eq, index) => 
-                      
-//                       <div key={index}>
-//                            <Link to={"/"+eq.title}>
-//                           <div className="card text-white bg-Success mb-3" onClick={() => this.handleClick(eq.title)}>
-//                             <div className="card-header text-center">{index+1} . {eq.title}</div>
-//                             <div className="card-body">
-//                               <h4 className="card-title">{eq.img} card title</h4>
-//                               <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//                             </div>
-//                           </div>
-//                           </Link>
-//                       </div>
-                      
-//                     )}
-                  
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-
-
-
-
-// <div className="card" data-background="image" key={index} >
-//                       <div className="card bg-dark text-white">
-//                         <h6 className="card-category">{eq.category}</h6>
-//                         <div className="card-img-overlay" >{eq.name}
-//                         </div>
-//                         <img className="card-img" src={eq.icon}/>
-//                         <p className="card-brand">{eq.brand}</p>
-//                         <p className="card-description">{eq.desc}</p>
-//                         <div className="card-footer">
-//                           <a href="#pablo" className="btn btn-link btn-neutral">
-//                           <i className="fa fa-book" aria-hidden="true">Show More</i>
-//                           </a>
-//                         </div>
-//                       </div>
-//                     </div>

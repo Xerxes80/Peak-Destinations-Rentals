@@ -13,18 +13,6 @@ var AboutUs = React.createClass({
 
     return (
       <div className="">
-        <div className="page-header" data-parallax="true">
-          <div className="content-center">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="wrapper">
           <div className="section text-center landing-section">
             <div className="container">

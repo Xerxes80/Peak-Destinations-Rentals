@@ -21,9 +21,13 @@ var SignIn= React.createClass({
   handleSignIn: function(event){
     event.preventDefault();
     console.log(this.props);
+    
     console.log("sign in CLICKED");
+ 
     this.props.signIn(this.state.email, this.state.password);
     this.setState({ email: "", password: ""});
+
+    
   },
 
   render: function() {
@@ -31,31 +35,32 @@ var SignIn= React.createClass({
     return (
       <div className="">
         <div className="wrapper">
-          <div className="section landing-section">
+
             <div className="container">
               <div className="row">
                 <div className="col-md-8 offset-md-2">
-                  <h1>Test Authentication 🚀 </h1>
                   <div className="">
                     <div className="">
                       <div className="signinform profile">
                         <h3>Login</h3>
+                        <br /><br />
                         <form onSubmit={this.handleSignIn}>
                           <div className="signUpForm">
-                            <h4 className="">
-                              <strong>email</strong>
-                            </h4>
+                            <h6 className="">
+                              Email
+                            </h6>
                             <input
-                              type="text"
+                              type="email"
                               value={this.state.email}
                               className="form-control text-center"
                               id="email"
                               onChange={this.handleChange}
                               required
                             />
-                            <h4 className="">
-                              <strong>password</strong>
-                            </h4>
+                            <br />
+                            <h6 className="">
+                             Password
+                            </h6>
                             <input
                               type="text"
                               value={this.state.password}
@@ -65,7 +70,8 @@ var SignIn= React.createClass({
                               required
                             />
                             <div>
-                              <button type="submit" className="btn btn-danger"> "LogIN"</button>
+                            <br />
+                              <button type="submit" className="btn btn-danger"> Log In</button>
                             </div>
                             </div>
                           </form>
@@ -75,7 +81,7 @@ var SignIn= React.createClass({
                   </div>
                 </div>
               </div>
-            </div>
+            
           </div>
         </div>
      

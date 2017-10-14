@@ -22,9 +22,15 @@ var Snowboards = React.createClass({
   },
 
   handleClick: function(item) {
-    console.log("CLICKED");
+    console.log("item CLICKED");
     console.log(item);
 
+    var userId ="59e1f96653c74228fb21f6e6";
+    var itemId = item._id;
+    console.log("1", userId, itemId);
+    helpers.postCart(userId, itemId).then(function() {
+ 
+    }.bind(this));
   },
   
   render: function() {
@@ -32,59 +38,31 @@ var Snowboards = React.createClass({
 
     return (
       <div className="">
-        <div className="page-header" data-parallax="true">
-          <div className="content-center">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8 offset-md-2">
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="wrapper">
-          <div className="section text-center landing-section">
-            <div className="container">
-
-              <div className="row">
-
-              </div>
-              <br /><br />
-              <div className="row">
-                <div className="col-md-3">
-                  
-                </div>
-                <div className="col-md-3">
-                  
-                </div>
-                <div className="col-md-3">
-                
-                </div>
-                <div className="col-md-3">
-                
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="section landing-section">
             <div className="container">
               <div className="row">
                 <div className="col-md-8 offset-md-2">
-                   
+                   <h3 className="text-center">Snowboards</h3>
+                   <br /> <hr /> <br />
                     {this.state.snowboards.map((eq, index) => 
                       <div key={index}>
                         <div className="card" data-background="image">
-                          <img className="card-img" src= {eq.img} />
                           <div className="card-block">
+                            <img className="card-img" src= {eq.img}/>
+                            <div className="card-brand">
                             <h6 className="card-category">{eq.brand}</h6>
-                            <div className="card-icon">
                             </div>
                             <p className="card-description">{eq.name}</p>
+                            <div className="desc">
+                              <p className="card-description">{eq.desc}</p>
+                            </div>
+                            <div className="desc">
+                              <p className="card-description"><strong>${eq.price} /Day</strong></p>
+                            </div>
                             <div className="card-footer">
                               <div className="btn btn-link btn-neutral"  onClick={() => this.handleClick(eq)}>
-                              <i className="fa fa-book" aria-hidden="true"></i> Show more
+                              <i className="fa fa-book" aria-hidden="true"></i> Add To Cart
                               </div>
                             </div>
                           </div>

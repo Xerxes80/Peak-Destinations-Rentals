@@ -15,10 +15,10 @@ body{
 	height: 200px;
 }
 
-h1 {
+.quote {
 color: #4f8235;
 font-size: 72px;
-text-shadow: 4px 4px #000;
+text-shadow: 2px 2px #000;
 font-family: "cooper black";
 
 }
@@ -26,7 +26,7 @@ font-family: "cooper black";
 
 .carousel {
 	border-radius: 12px;
-	border:0px;
+	border:4px;
 	border-style: solid;
 	border-color: #fff;
 	;

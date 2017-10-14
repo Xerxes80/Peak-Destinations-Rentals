@@ -12,6 +12,7 @@ var SignUp= React.createClass({
         password: "",
         confPass: "",
         userName: ""
+  
     };
   },
   handleChange: function(event) {
@@ -23,9 +24,10 @@ var SignUp= React.createClass({
   handleSignUp: function(event){
     event.preventDefault();
     console.log("sign up CLICKED");
+
     console.log(this.props);
-    this.props.signUp(this.state.email, this.state.password, this.state.userName);
-    this.setState({ email: "", password: "", userName: ""});
+    this.props.signUp(this.state.email, this.state.password, this.state.confPass, this.state.userName);
+    this.setState({ email: "", password: "", confPass: "", userName: ""});
 
   },
 
@@ -35,33 +37,33 @@ var SignUp= React.createClass({
       <div className="">
         
         <div className="wrapper">
-          <div className="section landing-section">
+
             <div className="container">
               <div className="row">
                 <div className="col-md-8 offset-md-2">
-                  <h1>Test Authentication 🚀 </h1>
                   <div className="">
                     <div className="">
                       <div className="signupform profile">
                         <h3>Register</h3>
+                        <br /><br />
                         <div className="signUp-form">
-                        <h3>sign up</h3>
                         <form onSubmit={this.handleSignUp}>
-                          <div className="loginform">
-                            <h4 className="">
-                              <strong>email</strong>
-                            </h4>
+                          <div className="signUpform">
+                            <h6 className="">
+                              Email
+                            </h6>
                             <input
-                              type="text"
+                              type="email"
                               value={this.state.email}
                               className="form-control text-center"
                               id="email"
                               onChange={this.handleChange}
                               required
                             />
-                            <h4 className="">
-                              <strong>password</strong>
-                            </h4>
+                            <br />
+                            <h6 className="">
+                              Password
+                            </h6>
                             <input
                               type="text"
                               value={this.state.password}
@@ -70,9 +72,10 @@ var SignUp= React.createClass({
                               onChange={this.handleChange}
                               required
                             />
-                            <h4 className="">
-                              <strong>password</strong>
-                            </h4>
+                            <br />
+                            <h6 className="">
+                              Confirm password
+                            </h6>
                             <input
                               type="text"
                               value={this.state.confPass}
@@ -81,9 +84,10 @@ var SignUp= React.createClass({
                               onChange={this.handleChange}
                               required
                             />
-                            <h4 className="">
-                              <strong>userName</strong>
-                            </h4>
+                            <br />
+                            <h6 className="">
+                              UserName
+                            </h6>
                             <input
                               type="text"
                               value={this.state.userName}
@@ -93,8 +97,11 @@ var SignUp= React.createClass({
                               required
                             />
                             <div>
-                              <button type="submit" className="btn btn-danger"> "sign up"</button>
+                            <br />
+                              <button type="submit" className="btn btn-danger"> Sign Up</button>
+
                             </div>
+                            <br /><br />
                             </div>
                           </form>
 
@@ -106,7 +113,7 @@ var SignUp= React.createClass({
                 </div>
               </div>
             </div>
-          </div>
+   
         </div>
       </div>
     );

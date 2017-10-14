@@ -14,8 +14,7 @@ var Main = React.createClass({
       snowboardsIcon: "./assets/images/009-snowboard.png",
       snowmobilesIcon: "./assets/images/008-snowmobile.png",
       allEqpIcon: "./assets/images/003-list.png",
-      logInIcon: "./assets/images/005-sign-in.png",
-      logOutIcon: "./assets/images/004-sign-in-1.png",
+      logInIcon: "./assets/images/id-card.png",
       ordersIcon: "./assets/images/003-list.png",
       profileIcon: "./assets/images/002-profile.png",
       cartIcon: "./assets/images/001-shopping-cart.png"
@@ -45,9 +44,9 @@ var Main = React.createClass({
                     <Link className="nav-link" to="/BookNow">Book Now</Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <Link className="nav-link dropdown-toggle" data-toggle="dropdown" to="/Equipments">Equipments</Link>
+                    <Link className="nav-link dropdown-toggle" data-toggle="dropdown" to="/Equipments">Equipment</Link>
                     <ul className="dropdown-menu dropdown-menu-right dropdown-danger">
-                        <li className="dropdown-item"><Link to="/Equipments"><img src={this.state.allEqpIcon}/><i className="dropLogo"> </i>&nbsp; All Equipments</Link></li>
+                        <li className="dropdown-item"><Link to="/Equipments"><img src={this.state.allEqpIcon}/><i className="dropLogo"> </i>&nbsp; All Equipment</Link></li>
                         <li className="dropdown-item"><Link to="/Goggles"><img src={this.state.gogglesIcon}/><i className="dropLogo"> </i>&nbsp; Goggles</Link></li>
                         <li className="dropdown-item"><Link to="/Helmets"><img src={this.state.hemlmetsIcon}/><i className="dropLogo"> </i>&nbsp; Helmets</Link></li>
                         <li className="dropdown-item"><Link to="/Poles"><img src={this.state.polesIcon}/><i className="dropLogo"> </i>&nbsp; Poles</Link></li>
@@ -59,11 +58,11 @@ var Main = React.createClass({
                   <li className="nav-item dropdown">
                       <Link className="nav-link dropdown-toggle" data-toggle="dropdown" to="/Account" >MyAccount</Link>
                       <ul className="dropdown-menu dropdown-menu-right dropdown-danger">
-                          <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.logInIcon}/><i className="dropLogo"> </i>&nbsp; Sign In</Link></li>
-                          <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.logOutIcon}/><i className="dropLogo"> </i>&nbsp; Sign Out</Link></li>
+                          
+                          <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.logInIcon}/><i className="dropLogo"> </i>&nbsp; Login/Register</Link></li>
                           <li className="dropdown-item"><Link to="/Orders"><img src={this.state.ordersIcon}/><i className="dropLogo"> </i>&nbsp; Orders</Link></li>
                           <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.profileIcon}/><i className="dropLogo"> </i>&nbsp; Profile</Link></li>
-                          <li className="dropdown-item"><Link to="/Cart"><img src={this.state.cartIcon}/><i className="dropLogo"> </i>&nbsp; Cart</Link></li>
+                          <li className="dropdown-item"><Link to="/BookNow"><img src={this.state.cartIcon}/><i className="dropLogo"> </i>&nbsp; Cart</Link></li>
                       </ul>
                   </li>
                 </ul>

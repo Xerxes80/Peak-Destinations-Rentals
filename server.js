@@ -2,28 +2,29 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-// var session = require('express-session');
-// var MongoStore = require('connect-mongo')(session);
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var Equipments = require("./models/equipments.js");
 var User = require("./models/user.js");
+var Cart = require("./models/cart.js");
 mongoose.Promise = Promise;
 
 var app = express();
 
 
-var db = process.env.MONGODB_URI || "mongodb://localhost/peak-dest-rentals01";
+// var db = process.env.MONGODB_URI || "mongodb://localhost/peak-dest-rentals01";
 
-mongoose.connect(db, function(error) {
+// mongoose.connect(db, function(error) {
 
- if (error) {
-   console.log(error);
- }
- else {
-   console.log("mongoose connection is successful");
- }
-});
-// mongoose.connect("mongodb://localhost/peak-dest-rentals01");
-// var db = mongoose.connection;
+//  if (error) {
+//    console.log(error);
+//  }
+//  else {
+//    console.log("mongoose connection is successful");
+//  }
+// });
+mongoose.connect("mongodb://localhost/peak-dest-rentals01");
+var db = mongoose.connection;
 
 //handle mongo error
 // db.on('error', console.error.bind(console, 'connection error:'));
@@ -31,18 +32,18 @@ mongoose.connect(db, function(error) {
 //   console.log("mongoose connection is successful");
 // });
 
-// app.use(logger("dev"));
-// app.use(session({
-//   secret: 'work hard',
-//   resave: true,
-//   saveUninitialized: false,
-//   store: new MongoStore({
-//     mongooseConnection: db
-//   })
-// }));
-app.use(bodyParser.urlencoded({
-	extended: false
+app.use(logger("dev"));
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
 }));
+// app.use(bodyParser.urlencoded({
+// 	extended: false
+// }));
 
 //var userRoutes = require('./app/config/userRouter');
 // app.use('/', userRoutes);
@@ -69,7 +70,44 @@ app.get("/api/data", function(req, res) {
       }
     });
 });
-app.get("/api", function(req, res) {
+app.get("/api/cart", function(req, res) {
+
+  Cart.find({})
+    .exec(function(err, doc) {
+
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+// app.get("/email", function(req, res) {
+//   console.log(email);
+//   User.find().sort({ email: -1 }, function(error, found) {
+//     if (error) {
+//       console.log(error);
+//     }
+//     else {
+//       res.json(found);
+//     }
+//   });
+// });
+// app.get("/email", function(req, res) {
+
+//   User.find({email})
+//     .exec(function(err, doc) {
+
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//         res.send(doc);
+//       }
+//     });
+// });
+app.get("/signin", function(req, res) {
 
   User.find({})
     .exec(function(err, doc) {
@@ -82,12 +120,12 @@ app.get("/api", function(req, res) {
       }
     });
 });
-app.post("/api", function(req, res) {
+app.post("/signup", function(req, res) {
   var newUser = new User(req.body);
 
   console.log(req.body);
 
-  User.save(newUser, function(err, doc) {
+  newUser.save(newUser, function(err, doc) {
 
       if (err) {
         console.log(err);
@@ -96,6 +134,22 @@ app.post("/api", function(req, res) {
         res.send(doc);
       }
     });
+});
+app.post("/cart", function(req, res) {
+  var newCart = new Cart(req.body);
+
+  console.log(req.body);
+
+  newCart.save(newCart, function(err, doc) {
+
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+  
 });
 
 // app.use(function (req, res, next) {
