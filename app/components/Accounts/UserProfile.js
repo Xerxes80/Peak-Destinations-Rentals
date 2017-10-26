@@ -168,7 +168,7 @@ if (this.state.flag == 0) {
                                               <p className="carddescription"><strong>Phone: </strong> {eq.phone}</p>
                                               <p className="carddescription"><strong>Email: </strong> {eq.email}</p>
                                               <p className="carddescription"><strong>Location: </strong> {eq.location}</p>
-                                              <p className="carddescription"><strong>From: </strong>{eq.pickUp} <strong>To: </strong>{eq.dropOff}</p>
+                                              <p className="carddescription"><strong>From: </strong>{eq.pickUp}</p>
                                               <p className="carddescription"><strong>To: </strong>{eq.dropOff}</p>
                                               <p className="carddImg"> <strong>Total Price: </strong> ${eq.total} </p>
                                             </div>
