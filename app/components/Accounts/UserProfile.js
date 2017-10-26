@@ -35,7 +35,7 @@ var UserProfile= React.createClass({
            
           this.setState({profileEmail: results.data[0].email, 
                         name: results.data[0].username, 
-                        userCart: results.data[0].cart, 
+                       // userCart: results.data[0].cart, 
                         // userReservation: results.data[0].reservation
           });
              
@@ -165,7 +165,7 @@ if (this.state.flag == 0) {
                                           <div className="row">
                                             <div className="col-8">
                                               <p className="carddescription"><strong>Name: </strong> {eq.firstName} {eq.lastName} </p>
-                                              <p className="carddescription"><strong>Phone: </strong> {eq.phone} <strong>Email: </strong> {eq.email}</p>
+                                              <p className="carddescription"><strong>Phone: </strong> {eq.phone}</p>
                                               <p className="carddescription"><strong>Email: </strong> {eq.email}</p>
                                               <p className="carddescription"><strong>Location: </strong> {eq.location}</p>
                                               <p className="carddescription"><strong>From: </strong>{eq.pickUp} <strong>To: </strong>{eq.dropOff}</p>
