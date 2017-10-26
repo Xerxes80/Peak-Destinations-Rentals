@@ -24,6 +24,9 @@ var UserSchema = new Schema({
    		
    	type: Array
    		
+   },
+   reservation:{
+    type: Array
    }
   // upcoming_res: [ 
        

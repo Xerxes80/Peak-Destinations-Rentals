@@ -6,16 +6,31 @@ var ReservationSchema = new Schema({
   userId: {
     type: String
   },
-  info:{
+  firstName:{
   	type: String
   },
-  location: {
+  lastName:{
+    type: String
+  },
+  email:{
+    type: String
+  },
+  phone:{
+    type: String
+  },
+  pickUp: {
+    type: Date
+  },
+  dropOff:{
+    type: Date
+  },
+  location:{
     type: String
   },
   items: {
     type: Array
   },
-  total_price:{
+  total:{
     type: Number
   }
 });

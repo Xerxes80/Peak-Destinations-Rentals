@@ -25,7 +25,7 @@ var Form = React.createClass({
     console.log("Reserve CLICKED");
     console.log(this.props);
     this.props.Reserve(this.state.firstName, this.state.LastName, this.state.email, this.state.phone, this.state.pickUp, this.state.dropOff, this.state.location);
-    this.setState({firstName: "", lastName: "", email: "", phone: "", pickUp: "", dropOff: "" });
+    this.setState({firstName: "", LastName: "", email: "", phone: "", pickUp: "", dropOff: "" });
 
   },
 
@@ -34,6 +34,7 @@ var Form = React.createClass({
 
     return (
       <div className="">
+      <br /><br /><br /><br /><br />
         <div className="wrapper">
             <div className="container">
               <div className="">
@@ -44,7 +45,7 @@ var Form = React.createClass({
                   <form onSubmit={this.handleReserve}>
                     <div className="row">
                       <div className="col-md-6">
-                        <label className="col-md-6">Pick Up Date:</label>
+                        <label>Pick Up Date:</label>
                         <input type="date" value={this.state.pickUp} className="form-control " onChange={this.handleChange} id="pickUp" required />
                       </div>
                       <div className="formgroup col-md-6">

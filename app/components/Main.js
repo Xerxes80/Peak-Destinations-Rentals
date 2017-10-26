@@ -62,7 +62,7 @@ var Main = React.createClass({
                           <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.logInIcon}/><i className="dropLogo"> </i>&nbsp; Login/Register</Link></li>
                           <li className="dropdown-item"><Link to="/Orders"><img src={this.state.ordersIcon}/><i className="dropLogo"> </i>&nbsp; Orders</Link></li>
                           <li className="dropdown-item"><Link to="/UserProfile"><img src={this.state.profileIcon}/><i className="dropLogo"> </i>&nbsp; Profile</Link></li>
-                          <li className="dropdown-item"><Link to="/BookNow"><img src={this.state.cartIcon}/><i className="dropLogo"> </i>&nbsp; Cart</Link></li>
+                          <li className="dropdown-item"><Link to="/Cart"><img src={this.state.cartIcon}/><i className="dropLogo"> </i>&nbsp; Cart</Link></li>
                       </ul>
                   </li>
                 </ul>

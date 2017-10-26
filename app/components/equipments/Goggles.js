@@ -25,7 +25,7 @@ var Goggles = React.createClass({
     console.log("item CLICKED");
     console.log(item);
   
-    var userId ="59e1f96653c74228fb21f6e6";
+    var userId = localStorage.getItem("id");
     var itemId = item._id;
     console.log("1", userId, itemId);
     helpers.postCart(userId, itemId).then(function() {

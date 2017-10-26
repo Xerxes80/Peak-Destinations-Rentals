@@ -9,73 +9,79 @@ var BookNow = React.createClass({
 
   getInitialState: function() {
     return {
-          pickUp: "",
-          dropOff: "",
+          userId: "",
           firstName: "",
           LastName: "",
           email: "",
-          phone: ""
+          phone: "",
+          pickUp: "",
+          dropOff: "",
+          location: "",
+          items: [],
+          reservations: [],
+          total: 0,
+          reserve: false,
+          reserved: false,
+          name: "",
+
     };
   },
  componentDidMount: function() {
+  this.setState({userId: localStorage.getItem("id")});
+  helpers.getProfile(localStorage.getItem("id")).then(function(results) {
+       
+        if(results.data.length > 0){
+          this.setState({items: results.data[0].cart});
+
+        }
+      
+      }.bind(this));
+
   },
   componentDidUpdate: function() {
-  
-//     if (this.state.flag == 1) {
-//         helpers.getUser().then(function(results) {
-//       console.log(results);
-//       console.log("email", this.state.email);
-//       console.log("pass", this.state.password);
-    
-//     }.bind(this));
-// }
-//       if (this.state.flag == 0) {
-//         if(this.state.signUpPass === this.state.signUpConfPass){
-//           var userEmail = this.state.signUpPass;
-//           var exists = false;
-//           helpers.getUser().then(function(results) {
-//             results.data.forEach(function(item){
-//               if(item.email == userEmail){
-//                  exists = true;
-//               }
-//             });
-//             if(!exists){
-//               helpers.postUser(this.state.signUpEmail, 
-//                             this.state.signUpPass, 
-//                             this.state.userName
-//               ).then(function() {
-//               this.setState({signUpMsg: "Signed Up Successfully !", flag: -1 });
-//                 console.log(this.state.signUpMsg);
-//                 alert("Successfully Signed In, Please Log In");
-//               }.bind(this));
-//             }else{
-//               this.setState({signUpMsg: "Email is Already exists !", flag: -1 });
-//               console.log(this.state.signUpMsg);
-//             };
-//           }.bind(this));  
-//         }else{
-//             this.setState({signUpMsg: "Passwords Do Not Match ! Try Again", flag: -1 });
-//             console.log(this.state.signUpMsg);
-//         };
-//       }
+    if(this.state.reserve){
+      helpers.postRes(
+                this.state.userId,
+                this.state.firstName, 
+                this.state.LastName, 
+                this.state.email, 
+                this.state.phone, 
+                this.state.pickUp, 
+                this.state.dropOff, 
+                this.state.location,
+                this.state.total,
+                this.state.items
+        ).then(function(cb) {
+          
+          helpers.updateCard(this.state.userId).then(function() {
+            
+          }.bind(this));
+          this.setState({reserved: true, reserve: false});
+      }.bind(this));
+     // location.reload();
+      console.log("reserved:  ", this.state.reserved, this.state.reserve);
+    }
   },
   
   setReservation: function(firstName, LastName, email, phone, pickUp, dropOff, location) {
-    this.setState({ firstName: firstName, LastName: LastName, email: email, phone: phone, pickUp: pickUp, dropOff: dropOff, location: location });
+    this.setState({ firstName: firstName, LastName: LastName, email: email, phone: phone, pickUp: pickUp, dropOff: dropOff, location: location, reserve: true });
   },
+  setCart: function(total){
+    this.setState({ total: total});
+  },
+
   render: function() {
 
     return (
       <div className="">
         <div className="text-center">
-          <br /><br /><br />
-        <h2></h2>
+        
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 offset-md-1">
             <Form Reserve={this.setReservation} />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <Cart Items={this.setCart} />
           </div>
         </div>

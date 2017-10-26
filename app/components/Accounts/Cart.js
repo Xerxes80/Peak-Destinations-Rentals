@@ -12,24 +12,23 @@ var Cart= React.createClass({
     };
   },
   componentDidMount: function() {
-     helpers.getAll().then(function(allResult) {
-      console.log("all",allResult);
+    helpers.getAll().then(function(allResult) {
       this.setState({ allEquipments: allResult.data });
-      
-        
     }.bind(this));
     
-    helpers.getCart().then(function(results) {
-          console.log("cart : ",results);
-      this.setState({ allItems: results.data }); 
-        console.log("all again: ",this.state.allEquipments);
-        console.log("all cart: ",this.state.allItems);
+    helpers.getProfile(localStorage.getItem("id")).then(function(results) {
+       
+      if(results.data.length > 0){
+
+        this.setState({allItems: results.data[0].cart});
+        console.log("all items contents : ",this.state.allItems);
+        console.log("all equipmets avaiable: ",this.state.allEquipments);
         var newArray = [];
         var total= 0;
         for(var i=0; i<this.state.allItems.length; i++){
           for(var j=0; j<this.state.allEquipments.length; j++){
       
-            if(this.state.allItems[i].itemId == this.state.allEquipments[j]._id){
+            if(this.state.allItems[i] == this.state.allEquipments[j]._id){
              total += this.state.allEquipments[j].price;
               newArray.push(this.state.allEquipments[j]);
             }
@@ -37,9 +36,12 @@ var Cart= React.createClass({
         }
         this.setState({total: total});
         console.log("new newArray",newArray);
-        this.setState({cart: newArray})
+        this.setState({cart: newArray});
+        this.props.Items(this.state.total);
         console.log("final cart",this.state.cart);
-      }.bind(this));
+      }
+      
+    }.bind(this));
 
   },
       
@@ -50,35 +52,39 @@ var Cart= React.createClass({
 
     return (
       <div className="">
+      <br /><br /><br /><br /><br />
         <div className="wrapper">
           <div className="container">
 
             <h3>Your Reservation Cart</h3>
             <br /><hr /><br />
               <div className="card">
-              <div className="card-block">
-                <img className="card-img"/>
-                <div className="card-brand">
-                  <h6 className="card-category"></h6>
-                  {this.state.cart.map((eq, index) => 
-                      <div key={index}>
+                <div className="card-block">
+                  <img className="card-img"/>
+                  <div className="card-brand">
+                    <h6 className="card-category"></h6>
+                    {this.state.cart.map((eq, index) => 
+                        <div key={index} >
+                          <div className="row">
+                            <div className="col-8">
+                              <p className="carddescription"><strong>{eq.name}</strong></p>
+                              <p className="carddImg"> price: ${eq.price} </p>
+                            </div>
+                            <div className="col-4">
+                              <img src={eq.icon} width="100" />
+                            </div>
+                          </div>
+                          <hr />
+                        </div>
+                     
+                    )}
+                    <div className="cardfooter">
+                      <div className="" >
+                      <i className="fa fa-book" aria-hidden="true"></i> Total: {this.state.total}
+                      </div>
                       
-                      <p className="carddescription">{eq.name}</p><img src={eq.icon} width="50px"/>
-                      <div className="desc">
-                        <p className="carddImg"> src={eq.price} </p>
-                      </div>
-                      <div className="desc">
-                        <p className="carddescription"></p>
-                      </div>
-                    </div>
-                   
-                  )}
-                  <div className="cardfooter">
-                    <div className="" >
-                    <i className="fa fa-book" aria-hidden="true"></i> Total: {this.state.total}
                     </div>
                   </div>
-                </div>
                 </div> 
               </div>  
             
